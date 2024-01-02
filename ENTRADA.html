@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Agregamos el enlace para FontAwesome -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            
+        }
+        
+        html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background-color: black; /* Fondo negro para el cuerpo */
+      color: white; /* Color del texto */
+      font-weight: bold;
+    }
+
+    
+/* Updated menu styles for intense shadow and gradient blur */
+.menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.98) 10%, rgba(0, 0, 0, 0) 100%);
+    color: white;
+    font-size: 28px;
+    padding: 20px;
+    z-index: 3;
+    transition: background 0.3s;
+}
+
+
+    .image-container {
+      background-image: url("https://image.tmdb.org/t/p/original//32F1lhW53H0mp4uNXCGhyJQUULs.jpg");
+      background-size: cover;
+      background-position: center;
+  background-repeat: no-repeat;
+      background-attachment: fixed; /* Hace que la imagen de fondo sea fija */
+      position: relative;
+      width: 100%;
+      height: 70vh; /* Cambia la altura según tu imagen principal */
+      overflow: hidden;
+    }
+    
+    .inner-shadow {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.98) 8%, rgba(0, 0, 0, 0) 40%);
+}
+
+
+    .texto-blanco {
+      position: absolute;
+      bottom: 0;
+      left: 15px; /* Alineado a 20px desde la izquierda */ 
+      font-size: 28px; /* Tamaño de fuente de 28px */ 
+      color: #e7e5e4;
+      margin: 0; /* Elimina cualquier margen */
+      z-index: 1; /* Asegura que esté sobre el sombreado */
+    }
+    
+    /* Estilos para los rectángulos */
+    
+    
+    /* Cambia el color del menú al llegar al texto blanco */
+    .menu.scroll {
+      background: black; /* Cambia el color a azul sólido */
+    }
+
+    /* Estilos para el botón gris */
+    .boton-gris {
+      background-color: #181818;
+      margin-top: 20px;
+      color: #e7e5e4;
+      font-size: 12px;
+      border: none;
+      padding: 5px;
+      margin-right: 10px; /* Espacio a la derecha de los botones transparentes */
+      border-radius: 6px; /* Redondear el botón */
+      margin-left: 15px; /* Margen a la izquierda */
+    }
+
+    /* Estilos para los botones transparentes */
+    .botones-transparentes {
+      display: inline-block;
+    }
+    
+
+    .botones-transparentes button {
+      background: transparent;
+      border: transparent;
+      color: #888888;
+      padding: 1px 1px;
+      margin-right: 5px; /* Espacio entre los botones */
+      cursor: pointer;
+    }
+
+    /* Alinear el contenido del botón gris y los botones transparentes verticalmente */
+    .rectangulo {
+      display: flex;
+      align-items: center;
+    }
+
+    /* Estilos para el texto largo */
+    .texto-largo {
+    color: #e7e5e4;
+      padding: 20px; /* Espacio interno alrededor del texto */
+      text-align: left; /* Alineación del texto */
+      font-size: 16px; /* Tamaño de fuente */
+      line-height: 1.5; /* Espaciado entre líneas */
+    }
+
+        /* Estilo para eliminar el contorno en todos los botones */
+        button {
+            border: none;
+            outline: none;
+        }
+
+        #boton {
+            background-color: #181818;
+            color: white;
+            padding: 13px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            margin-left: 20px;
+            margin: 0px 10px 20px 15px;
+            font-weight: bold;
+        }
+
+        #icono {
+            margin-left: 5px;
+        }
+
+        #recuadro {
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: auto;
+            background-color: #181818;
+            z-index: 6;
+            transition: bottom 0.5s ease;
+            border-top-left-radius: 35px;
+            border-top-right-radius: 35px;
+              overflow-y: auto;
+            max-height: 100%;
+        }
+
+         #titulo {
+            font-weight: bold;
+            padding: 3px;
+            font-size: 20px;
+            color: #484848;
+            text-align: center;
+        }
+
+
+        /* Estilos para los botones dentro del recuadro */
+        .boton-container {
+            text-align: center;
+        }
+
+        .botonuwu {
+            background-color: #1b1b1b;
+            color: white;
+            padding: 13px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        .codigo {
+            display: none;
+        }
+
+        #boton i.fa-caret-down {
+            margin-right: 5px;
+        }
+        
+        
+    /* Estilos para los botones dentro del recuadro */
+    .boton-container {
+        text-align: center;
+        width: 90%; /* Ancho del 90% del contenedor */
+        margin: 0 auto; /* Centrar en el contenedor */
+    }
+
+    .botonuwu {
+        background-color: #1f1f1f; /* Cambiar color a #333 */
+        color: white;
+        padding: 13px;
+        border-radius: 7px; /* Puntas redondeadas de 7px */
+        border: none;
+        cursor: pointer;
+        font-size: 15px;
+        margin: 3px 0; /* Espacio entre botones */
+        font-weight: bold;
+        width: 100%; /* Botón ocupa el 100% del ancho del contenedor */
+    }
+
+   
+        .botonuwu {
+            text-align: center;
+            padding-left: 10px; /* Ajusta este valor según tu preferencia */
+        }
+        .boton-activo {
+        background-color: #555; /* Cambiar el color del botón activado a #555 */
+    }
+    
+      .recuadro {
+      background-color: #181818;
+      border-radius: 6px;
+      width: 95%;
+      height: 80px;
+      padding: 5px;
+      margin: 5px 0;
+    }
+
+    .imagen {
+      float: left;
+      border-radius: 6px;
+      margin: 5px;
+      width: 130px;
+      height: 70px;
+      margin-right: 15px;
+    }
+
+    .texto-blancto {
+      color: white;
+    }
+
+    .texto-negritra {
+      font-weight: bold;
+      margin-top: 10px;
+      margin-left: 100px;
+    }
+
+    .pequeno-recuadro {
+      background-color: #213c47;
+      color: white;
+      float: left;
+      margin-top: 6px;
+      border-radius: 3px;
+      padding: 2px 5px;
+    }
+
+    .contenedor {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .visto {
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      color: white;
+      margin-top: -33px;
+      margin-right: 10px;
+      float: right;
+      justify-content: flex-end;
+    }
+
+    .visto input[type="checkbox"] {
+      width: 50px;
+      height: 20px;
+      -webkit-appearance: none;
+      background: #484848;
+      border-radius: 50px;
+      outline: none;
+      transition: 0.5s;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .visto input[type="checkbox"]:checked {
+      background: var(--colorprincipal);
+    }
+
+    .visto input[type="checkbox"]:checked ~ h2 > span {
+      display: none;
+    }
+
+    .visto h2 span {
+    }
+
+    .visto input[type="checkbox"]::before {
+      content: '';
+      width: 20px;
+      height: 20px;
+      border-radius: 50px;
+      background: #ccc;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: scale(1.1);
+      box-shadow: 0 20px 10px rgba(0, 0, 0, 0.2);
+      transition: 0.4s;
+    }
+
+    .visto input:checked[type="checkbox"]::before {
+      left: 30px;
+    }
+
+    .visto h2 {
+      font-size: 10px;
+      font-weight: 600;
+    }
+
+    :root {
+      --colorprincipal: #213c47;
+    }
+    
+    
+  
+   
+    /* Estilo para el botón */
+    #cambiarOrden {
+        background-color: #181818;
+            color: white;
+            padding: 13px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            margin-left: 20px;
+            position: absolute;
+            margin: 0px 10px 20px 15px;
+            font-weight: bold;
+            right: 10px;
+        }
+
+        }
+
+    /* Estilo cuando el botón está en el estado "Antiguo" */
+    #cambiarOrden[estado="antiguo"] {
+        background-color: #333;
+    }
+
+    /* Estilo cuando el botón está en el estado "Nuevo" */
+    #cambiarOrden[estado="nuevo"] {
+        background-color: #555;
+    }
+    
+    
+   
+    /* Estilo para el fondo oscuro */
+    #oscurecer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Color de fondo oscuro con opacidad */
+        display: none; /* Inicialmente oculto */
+        z-index: 4; /* Colócalo por encima de otros elementos */
+    }
+
+
+  .favoritoBtn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 26px;
+    cursor: pointer;
+    position: absolute;
+    right: 60px; /* Ajusta el botón a 10px del borde derecho */
+}
+
+
+    /* Resto de tu código HTML y JavaScript */
+
+
+      
+
+    /* Estilos para el mensaje emergente */
+   #mensaje {
+    user-select: none;
+    display: none;
+    background-color: #4c4c4c;
+    color: #fff;
+    text-align: center;
+    padding: 10px 18px 10px 18px; /* Agrega el margen interno deseado */
+    margin: 0 auto; /* Centra el mensaje horizontalmente */
+    position: fixed;
+    bottom: 10%;
+    left: 0;
+    right: 0;
+    width: fit-content; /* Ajusta el ancho al contenido del texto */
+    z-index: 999;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: 20px;
+}
+
+    
+
+        /* Estilos para mostrar el mensaje */
+        #mensaje.mostrando {
+            display: block;
+            opacity: 1;
+        }
+
+        /* Estilos para ocultar el mensaje */
+        #mensaje.ocultando {
+            opacity: 0;
+        }
+
+.codigo {
+  display: none;
+  
+  animation: parpadeo 0.5s alternate;
+}
+
+@keyframes parpadeo {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Estilo para la cruz */
+#cerrarRecuadro {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    cursor: pointer;
+    font-size: 20px;
+    color: white;
+    /* Agrega cualquier otro estilo que desees */
+}
+
+ /* Estilos para la barra negra */
+        .black-bar {
+            background-color: transparent;
+            height: 35px;
+            width: 100%;
+            
+            top: 0;
+            left: 0;
+        }
+        
+        
+        
+        
+        
+        #player-container {
+            position: fixed;
+            top: -30%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.7); /* Color de la manta negra translúcida */
+            z-index: 200;
+            
+            display: none;
+  
+  animation: parpadeo 0.3s alternate;
+}
+
+@keyframes parpadeo {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+
+        }
+
+      #player-wrapper {
+    padding: 50px;
+    margin: 0 40px;
+    max-height: 183px;
+    background-color: #000;
+    border: 1px solid white; /* Agrega una línea blanca alrededor del reproductor */
+    border-radius: 10px;
+    position: relative;
+    
+}
+
+#player-container:-webkit-full-screen {
+    border: none; /* Elimina la línea blanca en pantalla completa */
+    background-color: transparent; /* Fondo transparente en pantalla completa */
+}
+
+#player-wrapper:-webkit-full-screen {
+    border: none; /* Elimina la línea blanca en pantalla completa */
+    border-radius: 0; /* Elimina la esquina redondeada en pantalla completa */
+}
+
+          .open-button {
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin-bottom:   0px; /* Ajusta el margen inferior de los botones */
+            position: relative;
+            width: 100%;
+            height: 38px; /* Altura de los botones */
+            border-bottom: 1px solid white; /* Línea blanca debajo de los botones */
+        }
+
+
+        #close-button {
+            position: absolute;
+            right: 10px;
+            background-color: transparent;
+            color: #fff;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            margin-top: -330px; /* Ajusta el margen superior para que esté 10px por encima del player */
+        }
+
+ /* Eliminar el resaltado en elementos seleccionables y enlaces */
+        a, button, select, textarea {
+            -webkit-tap-highlight-color: transparent;
+            tap-highlight-color: transparent;
+        }
+</style>
+
+</head>
+<body>
+
+
+ <div class="menu">
+  <i id="flecha" class="fa-solid fa-arrow-left" style="cursor: pointer;"></i>
+
+<script>
+  document.getElementById('flecha').addEventListener('click', function() {
+    redirigir();
+  });
+
+  function redirigir() {
+    // Obtiene el último identificador guardado en localStorage
+    var ultimoIdentificador = localStorage.getItem("ultimaPagina");
+
+    // Verifica si hay un identificador almacenado antes de redirigir
+    if (ultimoIdentificador) {
+      // Redirige a la última página abierta usando "go:homo"
+      window.location.href = "go:" + ultimoIdentificador;
+    } else {
+      // Maneja el caso en que no haya un identificador almacenado
+      alert("No hay última página registrada");
+      // Puedes cambiar esto para manejarlo de otra manera según tus necesidades
+    }
+  }
+</script>
+
+<button id="flag-button" style="position: fixed; top: px; right: 60px; background: transparent; border: none; color: white; font-size: 28px; cursor: pointer;">
+  <i class="fa-regular fa-flag"></i>
+</button>
+<!-- Add the heart icon button to the right side of the screen -->
+  <button class="favoritoBtn" data-id="Anotherlat"><i class="fa-regular fa-bookmark"></i></button>
+  
+</div>
+  
+  <div class="image-container">
+    <!-- Sombreado interior -->
+    <div class="inner-shadow">
+      <!-- Contenedor de texto -->
+      <div class="texto-blanco">Another</div>
+    </div>
+  </div>
+  
+  <button class="boton-gris">FN</button>
+  <div class="botones-transparentes">
+    <button>Colegial, Terror, Drama, Misterio • 2008</button>
+  </div>
+
+  <!-- Agrega el texto largo a continuación -->
+  <div class="texto-largo">
+    <p>
+      En la clase 3-3 de la secundaria Yomiyama North, el estudiante transferido Kouichi Sakakibara regresa después de tomar una licencia por enfermedad durante el primer mes de clases. Entre sus nuevos compañeros de clase, inexplicablemente se siente atraído por Mei Misaki, una chica reservada con un parche en el ojo a quien conoció en el hospital durante su ausencia. Pero ninguno de sus compañeros reconoce su existencia; le advierten que no se familiarice con cosas que no existen. En contra de sus palabras de precaución, Kouichi se hace amigo de Mei y pronto descubre la siniestra verdad detrás de la aprehensión de sus amigos.    </p>
+     <p>
+  Los siniestros rumores giran en torno a un antiguo alumno de la clase 3-3. Sin embargo, nadie compartirá todos los detalles del sombrío evento con Kouichi. Absorto en la maldición que afecta a su clase, Kouichi se propone descubrir su conexión con su nuevo amigo. A medida que surgen una serie de tragedias a su alrededor, ahora depende de Kouichi, Mei y sus compañeros de clase desentrañar el misterioso </div></div></div></div>
+  
+
+<button id="boton" onclick="toggleRecuadro()">
+    <i id="icono" class="fa-solid fa-caret-down" style="float: right;"></i>
+</button>
+<button id="cambiarOrden" onclick="cambiarOrdenEpisodios();" class="boton-con-icono">
+    <span id="textoBoton">Nuevos</span>
+    <span id="iconoOrden" class="fa-solid fa-arrow-up-short-wide icono-rotable"></span>
+</button>
+
+<div id="oscurecer"></div>
+
+<div id="recuadro">
+    <div id="titulo">
+        <p>Temporadas</p>
+        <span id="cerrarRecuadro" onclick="cerrarRecuadro()">X</span>
+  
+    </div>
+    <!-- Botones dentro del recuadro -->
+    <div class="boton-container">
+    
+    
+   
+    
+        <button class="botonuwu" onclick="mostrarCodigo('codigo1', this)">Temporada 1</button>
+               <!-- Agrega botones adicionales para más temporadas si es necesario -->
+<div class="black-bar" id="blackBar"></div>
+    </div>
+</div>
+
+<!-- Contenido de los códigos fuera del recuadro -->
+<div class="codigo" id="codigo1">
+    <div class="contenedor">
+  
+    <div class="recuadro" onclick="openPlayer('https://ia904702.us.archive.org/22/items/another-12-hacerse-valer/1%20Another%20Latino.mp4')">
+                            <img class="imagen" src="https://image.tmdb.org/t/p/w500//gL1dsaldUwMnkoyT5QS8JwnTKSI.jpg" alt="Imagen">
+                            <p class="texto-blancto texto-negritra">Episodio 1</p>
+                            <div class="pequeno-recuadro">S1 | E1</div>
+                            <div class="visto">
+                                <input type="checkbox" store="AnotherXE1" onclick="stopPropagation(event)" >
+                                <h2><span>NO</span> VISTO</h2>
+                            </div>
+                          </div>
+<div class="recuadro" onclick="openPlayer('https://ia904702.us.archive.org/22/items/another-12-hacerse-valer/Another%2002%20-%20Anteproyecto.mp4')">
+                            <img class="imagen" src="https://image.tmdb.org/t/p/w500//A3WzOjjmHqPU14DFDCUIxJGD5Ps.jpg" alt="Imagen">
+                            <p class="texto-blancto texto-negritra">Episodio 2</p>
+                            <div class="pequeno-recuadro">S1 | E2</div>
+                            <div class="visto">
+                                <input type="checkbox" store="AnotherXE2" onclick="stopPropagation(event)" >
+                                <h2><span>NO</span> VISTO</h2>
+                            </div>
+                          </div>
+<div class="recuadro" onclick="openPlayer('https://ia904702.us.archive.org/22/items/another-12-hacerse-valer/Another%2003%20-%20Escultura%20de%20huesos.mp4')">
+                            <img class="imagen" src="https://image.tmdb.org/t/p/w500//gdji6G79NQFlOGCwvLdvlrHKCdK.jpg" alt="Imagen">
+                            <p class="texto-blancto texto-negritra">Episodio 3</p>
+                            <div class="pequeno-recuadro">S1 | E3</div>
+                            <div class="visto">
+                                <input type="checkbox" store="AnotherXE3" onclick="stopPropagation(event)" >
+                                <h2><span>NO</span> VISTO</h2>
+                            </div>
+                          </div>
+<div class="recuadro" onclick="openPlayer('https://ia904702.us.archive.org/22/items/another-12-hacerse-valer/Another%2004%20-%20A%C3%B1adir%20carne.mp4')">
+                            <img class="imagen" src="https://image.tmdb.org/t/p/w500//o165YyA0LbT3rMPS3oY9m5ulOmB.jpg" alt="Imagen">
+                            <p class="texto-blancto texto-negritra">Episodio 4</p>
+                            <div class="pequeno-recuadro">S1 | E4</div>
+                            <div class="visto">
+                                <input type="checkbox" store="AnotherXE4" onclick="stopPropagation(event)" >
+                                <h2><span>NO</span> VISTO</h2>
+                            </div>
+                          </div>
+<div class="recuadro" onclick="openPlayer('https://ia904702.us.archive.org/22/items/another-12-hacerse-valer/Another%2005%20-%20Construir%20extremidades.mp4')">
+                            <img class="imagen" src="https://image.tmdb.org/t/p/w500//1UH7aX14V3wJvTvboKHF24pRsm3.jpg" alt="Imagen">
+                            <p class="texto-blancto texto-negritra">Episodio 5</p>
+                            <div class="pequeno-recuadro">S1 | E5</div>
+                            <div class="visto">
+                                <input type="checkbox" store="AnotherXE5" onclick="stopPropagation(event)" >
+                                <h2><span>NO</span> VISTO</h2>
+                            </div>
+                          </div>
+<div class="recuadro" onclick="openPlayer('https://ia904702.us.archive.org/22/items/another-12-hacerse-valer/Another%2006%20-%20Cara%20a%20cara.mp4')">
+                            <img class="imagen" src="https://image.tmdb.org/t/p/w500//24L58UoU0wYY37vcebgyHVsRo8c.jpg" alt="Imagen">
+                            <p class="texto-blancto texto-negritra">Episodio 6</p>
+                            <div class="pequeno-recuadro">S1 | E6</div>
+                            <div class="visto">
+                                <input type="checkbox" store="AnotherXE6" onclick="stopPropagation(event)" >
+                                <h2><span>NO</span> VISTO</h2>
+                            </div>
+                          </div>
+<div class="recuadro" onclick="openPlayer('https://ia904702.us.archive.org/22/items/another-12-hacerse-valer/Another%2007%20-%20Esfera%20en%20conjunto.mp4')">
+                            <img class="imagen" src="https://image.tmdb.org/t/p/w500//hCkAlvlzPmqqdXbK2auvmt7bxSU.jpg" alt="Imagen">
+                            <p class="texto-blancto texto-negritra">Episodio 7</p>
+                            <div class="pequeno-recuadro">S1 | E7</div>
+                            <div class="visto">
+                                <input type="checkbox" store="AnotherXE7" onclick="stopPropagation(event)" >
+                                <h2><span>NO</span> VISTO</h2>
+                            </div>
+                          </div>
+<div class="recuadro" onclick="openPlayer('https://ia904702.us.archive.org/22/items/another-12-hacerse-valer/Another%2008%20-%20Pelos%20de%20punta.mp4')">
+                            <img class="imagen" src="https://image.tmdb.org/t/p/w500//uPz4FnOHLh3luzWTN6MHVObSORS.jpg" alt="Imagen">
+                            <p class="texto-blancto texto-negritra">Episodio 8</p>
+                            <div class="pequeno-recuadro">S1 | E8</div>
+                            <div class="visto">
+                                <input type="checkbox" store="AnotherXE8" onclick="stopPropagation(event)" >
+                                <h2><span>NO</span> VISTO</h2>
+                            </div>
+                          </div>
+<div class="recuadro" onclick="openPlayer('https://ia904702.us.archive.org/22/items/another-12-hacerse-valer/Another%2009%20-%20Pintura%20corporal.mp4')">
+                            <img class="imagen" src="https://image.tmdb.org/t/p/w500//xQbLWVyHlBFZnmLke54OQMHiTAP.jpg" alt="Imagen">
+                            <p class="texto-blancto texto-negritra">Episodio 9</p>
+                            <div class="pequeno-recuadro">S1 | E9</div>
+                            <div class="visto">
+                                <input type="checkbox" store="AnotherXE9" onclick="stopPropagation(event)" >
+                                <h2><span>NO</span> VISTO</h2>
+                            </div>
+                          </div>
+<div class="recuadro" onclick="openPlayer('https://ia904702.us.archive.org/22/items/another-12-hacerse-valer/Another%2010%20-%20Ojo%20de%20vidrio.mp4')">
+                            <img class="imagen" src="https://image.tmdb.org/t/p/w500//oSwBSqkncyLbajEThhmsht3CMkO.jpg" alt="Imagen">
+                            <p class="texto-blancto texto-negritra">Episodio 10</p>
+                            <div class="pequeno-recuadro">S1 | E10</div>
+                            <div class="visto">
+                                <input type="checkbox" store="AnotherXE10" onclick="stopPropagation(event)" >
+                                <h2><span>NO</span> VISTO</h2>
+                            </div>
+                          </div>
+<div class="recuadro" onclick="openPlayer('https://ia904702.us.archive.org/22/items/another-12-hacerse-valer/Another%2011%20-%20Maquillaje.mp4')">
+                            <img class="imagen" src="https://image.tmdb.org/t/p/w500//ekDiOXRXDWnzb2z2sYQKF4ksjmt.jpg" alt="Imagen">
+                            <p class="texto-blancto texto-negritra">Episodio 11</p>
+                            <div class="pequeno-recuadro">S1 | E11</div>
+                            <div class="visto">
+                                <input type="checkbox" store="AnotherXE11" onclick="stopPropagation(event)" >
+                                <h2><span>NO</span> VISTO</h2>
+                            </div>
+                          </div>
+<div class="recuadro" onclick="openPlayer('https://ia904702.us.archive.org/22/items/another-12-hacerse-valer/Another%2012%20-%20Hacerse%20valer.mp4')">
+                            <img class="imagen" src="https://image.tmdb.org/t/p/w500//p1aIh99v6r5Uy8ThrqUljP5S6sZ.jpg" alt="Imagen">
+                            <p class="texto-blancto texto-negritra">Episodio 12</p>
+                            <div class="pequeno-recuadro">S1 | E12</div>
+                            <div class="visto">
+                                <input type="checkbox" store="AnotherXE12" onclick="stopPropagation(event)" >
+                                <h2><span>NO</span> VISTO</h2>
+                            </div>
+                          </div>
+                          <div class="recuadro" onclick="openPlayer('https://ia904702.us.archive.org/22/items/another-12-hacerse-valer/Another%2000%20Ova%20-%20El%20Otro.mp4')">
+                            <img class="imagen" src="https://3.bp.blogspot.com/-ZSatJZzoIZE/T853jQ2-ECI/AAAAAAAAFXI/NNNs0NG6SlQ/s1600/another-0.jpg" alt="Imagen">
+                            <p class="texto-blancto texto-negritra">Episodio 13 OVA</p>
+                            <div class="pequeno-recuadro">S1 | E13</div>
+                            <div class="visto">
+                                <input type="checkbox" store="AnotherXE12" onclick="stopPropagation(event)" >
+                                <h2><span>NO</span> VISTO</h2>
+                            </div>
+                          </div>
+
+                  
+</div>
+</div>
+
+</div>
+</div>
+<div id="mensaje" class="oculto"></i>  ¡Anime añadido a tu lista!  </div>
+
+<script>
+    // Función para mostrar el código correspondiente y cambiar el texto del botón
+    function mostrarCodigo(id, button) {
+        var codigos = document.getElementsByClassName("codigo");
+        for (var i = 0; i < codigos.length; i++) {
+            codigos[i].style.display = "none";
+        }
+        var codigo = document.getElementById(id);
+        codigo.style.display = "block";
+
+        // Cambiar el texto del botón principal al texto del botón presionado
+        var boton = document.getElementById("boton");
+        boton.innerHTML = button.textContent + ' <i id="icono" class="fa-solid fa-caret-down" style="float: right;"></i>';
+    }
+
+    // Mostrar el primer contenido por defecto
+    mostrarCodigo('codigo1', document.querySelector('.botonuwu'));
+
+    // Resto del código como estaba
+    // Función para mostrar u ocultar el recuadro de selección de temporadas y el fondo oscuro
+function toggleRecuadro() {
+    var recuadro = document.getElementById('recuadro');
+    var oscurecer = document.getElementById('oscurecer');
+    if (recuadro.style.bottom === '0px') {
+        recuadro.style.bottom = '-100%';
+        oscurecer.style.display = 'none';
+    } else {
+        recuadro.style.bottom = '0';
+        oscurecer.style.display = 'block';
+    }
+}
+
+// Cerrar el recuadro si se hace clic en cualquier cosa que no sea el recuadro o el botón
+document.addEventListener('click', function (event) {
+    var recuadro = document.getElementById('recuadro');
+    if (event.target !== recuadro && event.target !== document.getElementById('boton')) {
+        recuadro.style.bottom = '-100%';
+        document.getElementById('oscurecer').style.display = 'none';
+    }
+});
+
+    function mostrarCodigo(id, button) {
+    var codigos = document.getElementsByClassName("codigo");
+    for (var i = 0; i < codigos.length; i++) {
+        codigos[i].style.display = "none";
+    }
+    var codigo = document.getElementById(id);
+    codigo.style.display = "block";
+
+    // Cambiar el texto del botón principal al texto del botón presionado
+    var boton = document.getElementById("boton");
+    boton.innerHTML = button.textContent + ' <i id="icono" class="fa-solid fa-caret-down" style="float: right;"></i>';
+
+    // Agregar la clase 'boton-activo' al botón presionado
+    button.classList.add('boton-activo');
+
+    // Quitar la clase 'boton-activo' de otros botones
+    var botones = document.getElementsByClassName("botonuwu");
+    for (var i = 0; i < botones.length; i++) {
+        if (botones[i] !== button) {
+            botones[i].classList.remove('boton-activo');
+        }
+    }
+}
+
+var boxes = document.querySelectorAll("input[type='checkbox']");
+  for (var i = 0; i < boxes.length; i++) {
+    var box = boxes[i];
+    if (box.hasAttribute("store")) {
+      setupBox(box);
+    }
+  }
+
+  function setupBox(box) {
+    var storageId = box.getAttribute("store");
+    var oldVal = localStorage.getItem(storageId);
+    box.checked = oldVal === "true" ? true : false;
+
+    box.addEventListener("change", function() {
+      localStorage.setItem(storageId, this.checked);
+    });
+  }
+  
+  function cambiarOrdenRectangulos() {
+    var codigoActual = document.querySelector('.codigo.boton-activo');
+    if (codigoActual) {
+        var parent = codigoActual.parentElement;
+        parent.removeChild(codigoActual);
+        parent.prepend(codigoActual);
+    }
+
+}
+
+
+   
+
+  
+   
+   
+    
+    
+    
+   
+        // JavaScript para cambiar el color del menú al hacer scroll
+    window.addEventListener("scroll", function() {
+      var menu = document.querySelector(".menu");
+      var textoBlanco = document.querySelector(".texto-blanco");
+      if (window.scrollY >= textoBlanco.offsetTop) {
+        menu.classList.add("scroll");
+      } else {
+        menu.classList.remove("scroll");
+      }
+    });
+  
+  
+    
+   
+   
+   
+    
+    var esAntiguo = true; // Variable para rastrear el estado del botón
+
+// Función para cambiar el estado del botón y el texto
+function cambiarOrdenEpisodios() {
+    var boton = document.getElementById("cambiarOrden");
+    var textoBoton = document.getElementById("textoBoton");
+    esAntiguo = !esAntiguo; // Cambia el estado
+    if (esAntiguo) {
+        textoBoton.innerText = "Nuevos";
+    } else {
+        textoBoton.innerText = "antiguos";
+    }
+
+    // Llama a la función para invertir el orden de todos los episodios en todas las temporadas
+    invertirOrdenEpisodios();
+}
+
+// Función para invertir el orden de todos los recuadros en todas las temporadas
+function invertirOrdenEpisodios() {
+    var codigos = document.getElementsByClassName("codigo");
+    for (var i = 0; i < codigos.length; i++) {
+        var contenedor = codigos[i].querySelector(".contenedor");
+        var rectangulos = contenedor.getElementsByClassName("recuadro");
+        var arrEpisodios = Array.from(rectangulos);
+        arrEpisodios.reverse();
+
+        while (contenedor.firstChild) {
+            contenedor.removeChild(contenedor.firstChild);
+        }
+
+        for (var j = 0; j < arrEpisodios.length; j++) {
+            contenedor.appendChild(arrEpisodios[j]);
+        }
+    }
+}
+
+
+const favoritoBtns = document.querySelectorAll(".favoritoBtn");
+
+        favoritoBtns.forEach(button => {
+            const elementoAgregado = {
+                id: button.getAttribute("data-id"),
+                src: "https://image.tmdb.org/t/p/original//32F1lhW53H0mp4uNXCGhyJQUULs.jpg",
+                alt: "Another latino",
+                url: "go:Anotherlat",
+            };
+
+            const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+            const isAdded = favoritos.some(item => item.id === elementoAgregado.id);
+            updateButtonContent(button, isAdded);
+
+            button.addEventListener("click", () => {
+                const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+                const index = favoritos.findIndex(item => item.id === elementoAgregado.id);
+
+                if (index === -1) {
+                    favoritos.push(elementoAgregado);
+                    mostrarMensajeEmergente();
+                } else {
+                    favoritos.splice(index, 1);
+                }
+
+                localStorage.setItem("favoritos", JSON.stringify(favoritos));
+                updateButtonContent(button, index === -1);
+            });
+        });
+
+        function updateButtonContent(button, isAdded) {
+            if (isAdded) {
+                button.innerHTML = '<i class="fa-solid fa-bookmark"></i> ';
+            } else {
+                button.innerHTML = '<i class="fa-regular fa-bookmark"></i> ';
+            }
+        }
+
+        function mostrarMensajeEmergente() {
+            const mensaje = document.getElementById('mensaje');
+            mensaje.classList.add('mostrando');
+
+            setTimeout(function () {
+                mensaje.classList.add('ocultando');
+
+                setTimeout(function () {
+                    mensaje.classList.remove('mostrando');
+                }, 500);
+
+                setTimeout(function () {
+                    mensaje.classList.remove('ocultando');
+                }, 1000);
+            }, 3000);
+        }
+        
+
+
+ 
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JWPlayer</title>
+    <script src="https://ssl.p.jwpcdn.com/player/v/8.18.4/jwplayer.js"></script>
+    <script type="text/javascript">
+        jwplayer.key = "W7zSm81+mmIsg7F+fyHRKhF3ggLkTqtGMhvI92kbqf/ysE99";
+    </script>
+    
+</head>
+<body>
+
+  
+
+     <div id="player-container" style="display: none;">
+        <div id="player-wrapper"></div>
+        <button id="close-button" onclick="closePlayer()">×</button>
+    </div>
+
+    <script type="text/javascript">
+        var playerOpen = false;
+        var playerInstance;
+
+        function openPlayer(videoUrl) {
+            if (playerOpen) return;
+            
+            var player = jwplayer("player-wrapper");
+            player.setup({
+                file: videoUrl,
+                aspectratio: "16:9",
+                startparam: "start",
+                primary: "html5",
+                autostart: true,
+                preload: "auto",
+                image: "",
+                advertising: {
+                    client: "vast",
+                    tag: ""
+                },
+                skin: {
+                    name: "megaplay"
+                },
+                logo: {
+                    file: "#"
+                },
+                captions: {
+                    color: "#f3f368",
+                    fontSize: 16,
+                    backgroundOpacity: 0,
+                    fontfamily: "Helvetica",
+                    edgeStyle: "raised"
+                },
+                tracks: [{
+                    file: "",
+                    label: "Español",
+                    kind: "captions"
+                }]
+            });
+
+            playerInstance = player;
+            document.getElementById("player-container").style.display = "flex";
+            playerOpen = true;
+        }
+
+        function closePlayer() {
+            playerInstance.pause(); // Detener la reproducción del video
+            document.getElementById("player-container").style.display = "none";
+            playerOpen = false;
+        }
+        
+        document.getElementById("player-container").addEventListener("click", function(event) {
+        if (event.target === this) {
+            closePlayer();
+        }
+    });
+        
+        // Identificar el botón y el reproductor de video
+const boton = document.getElementById("botonAbrirReproductor");
+const reproductor = document.getElementById("miReproductorDeVideo");
+
+// Agregar un manejador de eventos al botón
+boton.addEventListener("click", function() {
+  // Colocar el reproductor en pantalla completa
+  if (reproductor.requestFullscreen) {
+    reproductor.requestFullscreen();
+  } else if (reproductor.mozRequestFullScreen) {
+    reproductor.mozRequestFullScreen();
+  } else if (reproductor.webkitRequestFullscreen) {
+    reproductor.webkitRequestFullscreen();
+  }
+
+  // Cambiar la orientación a horizontal
+  screen.orientation.lock("landscape");
+});
+
+
+    </script>
+   
+    <script>
+ 
+ 
+  // Agregar un manejador de clic al botón
+  document.getElementById("flag-button").addEventListener("click", function() {
+    // Redirigir a la página deseada al hacer clic en el botón
+    window.location.href = "https://www.socialcreator.com/reportesanimx";
+  });
+
+    function stopPropagation(event) {
+        event.stopPropagation(); // Detiene la propagación del evento
+    }
+ 
+</script>
+
+</body>
+</html>
