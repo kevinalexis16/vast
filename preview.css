@@ -1,0 +1,93 @@
+@import url(//db.onlinewebfonts.com/c/d1bfb85795ca505281f9cee67b285c9a?family=Avenir+LT+Pro);
+@font-face {
+    font-family: "Avenir LT Pro";
+    src: url("//db.onlinewebfonts.com/t/d1bfb85795ca505281f9cee67b285c9a.eot");
+    src: url("//db.onlinewebfonts.com/t/d1bfb85795ca505281f9cee67b285c9a.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/d1bfb85795ca505281f9cee67b285c9a.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/d1bfb85795ca505281f9cee67b285c9a.woff") format("woff"), url("//db.onlinewebfonts.com/t/d1bfb85795ca505281f9cee67b285c9a.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/d1bfb85795ca505281f9cee67b285c9a.svg#Avenir LT Pro") format("svg");
+}
+
+.preview {
+    max-width: 500px;
+    margin: 2rem auto;
+    background: #11191f;
+    max-height: calc(100vh - 6rem);
+    overflow: auto;
+    border: 6px solid #fff;
+    border-radius: 50px;
+    width: 500px;
+    position: relative;
+
+    /* From https://css.glass */
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    
+}
+
+.preview .html-preview .banner::after {
+    z-index: 1;
+}
+
+.preview .html-preview .banner .info {
+    z-index: 2;
+}
+
+.preview::-webkit-scrollbar {
+    display: none;
+}
+
+.preview * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+}
+
+.preview * a {
+    text-decoration: none;
+}
+
+.preview>body {
+    min-height: 100vh;
+    font-family: "Avenir LT Pro";
+}
+
+body {
+    background: #11191f;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+}
+
+.viste-previa {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    margin: 1rem 2rem;
+}
+
+.copiar {
+    position: fixed;
+    z-index: 99;
+    /* top: 1rem;
+    right: 1rem; */
+    display: block;
+    width: 200px;
+    padding: 3px 1rem;
+    margin-top: 1rem;
+    margin-left: 270px;
+    border-radius: 10px;
+    box-shadow: 2.8px 2.8px 2.2px rgb(0 0 0 / 1%), 6.7px 6.7px 5.3px rgb(0 0 0 / 2%), 12.5px 12.5px 10px rgb(0 0 0 / 3%), 22.3px 22.3px 17.9px rgb(0 0 0 / 2%), 41.8px 41.8px 33.4px rgb(0 0 0 / 2%), 100px 100px 80px rgb(0 0 0 / 7%);
+}
+
+#html-preview .poster-number img {
+    max-width: 70px;
+    border-radius: 7px;
+    margin-right: 10px;
+    aspect-ratio: 2/3;
+}
+
+.final-js {
+    display: none;
+}
