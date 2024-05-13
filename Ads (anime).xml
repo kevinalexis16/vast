@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VAST xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="vast.xsd" version="3.0">
+    <Ad id="1">
+        <InLine>
+            <AdSystem>GDPlayer</AdSystem>
+            <AdTitle>intro </AdTitle>
+            <Creatives>
+                <Creative id="2" sequence="1">
+                    <Linear skipoffset="00:01:20">
+                        <Duration>00:01:022</Duration>
+                        <VideoClicks>
+                            <ClickThrough id="blog"><![CDATA[#]]></ClickThrough>
+                            <CustomClick>market://details?id=anime.go45</CustomClick>
+                        </VideoClicks>
+                        <MediaFiles>
+                            <MediaFile id="3" delivery="progressive" type="video/mp4" scalable="1" maintainAspectRatio="1" codec="0" apiFramework="VAST"><![CDATA[https://files.catbox.moe/4gnm0z.mp4]]></MediaFile>
+                        </MediaFiles>
+                    </Linear>
+                </Creative>
+            </Creatives>
+        </InLine>
+    </Ad>
+</VAST>
