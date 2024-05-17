@@ -6,7 +6,7 @@
             <AdTitle>intro </AdTitle>
             <Creatives>
                 <Creative id="2" sequence="1">
-                    <Linear skipoffset="00:01:20">
+                    <Linear skipoffset="00:00:20">
                         <Duration>00:01:022</Duration>
                         <VideoClicks>
                             <ClickThrough id="blog"><![CDATA[market://details?id=anime.go45]]></ClickThrough>
