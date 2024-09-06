@@ -7,13 +7,13 @@
             <Creatives>
                 <Creative id="2" sequence="1">
                     <Linear skipoffset="00:00:20">
-                        <Duration>00:00:22</Duration>
+                        <Duration>00:1:05</Duration>
                         <VideoClicks>
-                            <ClickThrough id="blog"><![CDATA[market://details?id=anime.go45]]></ClickThrough>
-                            <CustomClick>market://details?id=anime.go45</CustomClick>
+                            <ClickThrough id="blog"><![CDATA[market://details?id=xd.anime]]></ClickThrough>
+                            <CustomClick>market://details?id=xd.anime</CustomClick>
                         </VideoClicks>
                         <MediaFiles>
-                            <MediaFile id="3" delivery="progressive" type="video/mp4" scalable="1" maintainAspectRatio="1" codec="0" apiFramework="VAST"><![CDATA[https://files.catbox.moe/4gnm0z.mp4]]></MediaFile>
+                            <MediaFile id="3" delivery="progressive" type="video/mp4" scalable="1" maintainAspectRatio="1" codec="0" apiFramework="VAST"><![CDATA[https://serverbankai.xyz/mantequilla/cerezo/xd/Promo-xd-anime.mp4]]></MediaFile>
                         </MediaFiles>
                     </Linear>
                 </Creative>
