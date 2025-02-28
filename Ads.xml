@@ -6,14 +6,14 @@
             <AdTitle>intro </AdTitle>
             <Creatives>
                 <Creative id="2" sequence="1">
-                    <Linear skipoffset="00:00:04">
-                        <Duration>00:00:03</Duration>
+                    <Linear skipoffset="00:00:30">
+                        <Duration>00:00:37</Duration>
                         <VideoClicks>
-                            <ClickThrough id="blog"><![CDATA[#]]></ClickThrough>
-                            <CustomClick>#</CustomClick>
+                            <ClickThrough id="blog"><![CDATA[https://play.google.com/store/apps/details?id=keflix.mx]]></ClickThrough>
+                            <CustomClick>https://play.google.com/store/apps/details?id=keflix.mx</CustomClick>
                         </VideoClicks>
                         <MediaFiles>
-                            <MediaFile id="3" delivery="progressive" type="video/mp4" scalable="1" maintainAspectRatio="1" codec="0" apiFramework="VAST"><![CDATA[https://files.catbox.moe/or2vj1.mp4]]></MediaFile>
+                            <MediaFile id="3" delivery="progressive" type="video/mp4" scalable="1" maintainAspectRatio="1" codec="0" apiFramework="VAST"><![CDATA[https://1a-1791.com/video/fwe2/c5/s8/2/E/8/_/n/E8_ny.caa.mp4]]></MediaFile>
                         </MediaFiles>
                     </Linear>
                 </Creative>
